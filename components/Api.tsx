@@ -1,5 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https'
-})
+    baseURL: 'https://api.hgbrasil.com/'
+});
+
+export default api;
