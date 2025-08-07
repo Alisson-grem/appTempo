@@ -5,10 +5,11 @@ interface propsTempo{
     max:number,
     min:number,
     description:string,
-    condition:string
+    condition:string,
+    lua:string
 }
 
-export default function Tempo({date, max, min, description, condition } : propsTempo){
+export default function Tempo({date, max, min, description, condition, lua } : propsTempo){
     const icones: Record<string, any> = {
         clear_day: require("../assets/png/clear_day.png"),
         clear_night: require("../assets/png/clear_night.png"),
@@ -32,6 +33,10 @@ export default function Tempo({date, max, min, description, condition } : propsT
                 <Image 
                 style={styles.imagem}
                 source={icones[condition]}
+                />
+            <Image
+                style={styles.imagem}
+                source={{uri:'https://assets.hgbrasil.com/weather/icons/moon/${lua}.png'}}
                 />
         </View>
     );

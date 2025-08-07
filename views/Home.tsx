@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         fontSize:30
     },
     btn:{
-       backgroundColor:"#5599AA",
+       backgroundColor:"#bbb92eff",
        width:'80%',
        padding:10,
        marginBottom:20,
