@@ -3,11 +3,11 @@ import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Tempo from '../components/Tempo';
 import Api from '../components/Api';
 
-export default function Itanhaem(){
+export default function NovaIguaçu(){
     const [dados, setDados] = useState<any[]>([]);
 
     async function buscaTempo(){
-        const response = await Api.get('weather?array_limit=2&fields=only_results,temp,forecast,max,min,date,condition,moon_phase,key=b22ab5ba&city_name=Itanhaem,SP')
+        const response = await Api.get('https://api.hgbrasil.com/weather?key=b22ab5ba&woeid=441588')
         setDados(response.data.forecast);
     }
 
@@ -17,7 +17,7 @@ export default function Itanhaem(){
 
     return(
         <View style={styles.bloco}>
-            <Text style={styles.Texto}>Previsão do Tempo para Itanhaém</Text>
+            <Text style={styles.Texto}>Previsão do Tempo para Nova Iguaçu</Text>
             <FlatList
                 data={dados}
                 keyExtractor={(item)=>item.date}
