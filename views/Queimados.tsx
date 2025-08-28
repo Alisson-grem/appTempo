@@ -7,7 +7,7 @@ export default function Queimados(){
     const [dados, setDados] = useState<any[]>([]);
 
     async function buscaTempo(){
-        const response = await Api.get('https://api.hgbrasil.com/weather?key=b22ab5ba&woeid=446129')
+        const response = await Api.get('https://api.hgbrasil.com/weather?array_limit=3&fields=only_results,temp,forecast,max,min,date,condition,moon_phase&key=1ab2802d&city_name=Queimados,RJ')
         setDados(response.data.forecast);
     }
 
@@ -24,8 +24,8 @@ export default function Queimados(){
                 renderItem={({item})=> <Tempo date={item.date} 
                 max={item.max} min={item.min} 
                 description={item.description} 
-                condition={item.condition} lua={item.moon_phase}
-                />}
+                condition={item.condition} 
+                luas={item.moon_phase}/>}
                 style={styles.lista}
             />
         </View>

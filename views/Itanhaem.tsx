@@ -7,12 +7,13 @@ export default function Itanhaem(){
     const [dados, setDados] = useState<any[]>([]);
 
     async function buscaTempo(){
-        const response = await Api.get('weather?array_limit=2&fields=only_results,temp,forecast,max,min,date,condition,moon_phase,key=b22ab5ba&city_name=Itanhaem,SP')
+        const response = await Api.get('https://api.hgbrasil.com/weather?array_limit=3&fields=only_results,temp,forecast,max,min,date,condition,moon_phase&key=1ab2802d&city_name=Itanhaem,SP')
         setDados(response.data.forecast);
     }
 
     useEffect(
-        ()=>{buscaTempo()
+        ()=>{
+            buscaTempo()
         },[]);
 
     return(
@@ -21,10 +22,12 @@ export default function Itanhaem(){
             <FlatList
                 data={dados}
                 keyExtractor={(item)=>item.date}
-                renderItem={({item})=> <Tempo date={item.date} 
+                renderItem={({item})=> <Tempo 
+                date={item.date} 
                 max={item.max} min={item.min} 
                 description={item.description} 
-                condition={item.condition} lua={item.moon_phase}
+                condition={item.condition} 
+                luas={item.moon_phase}
                 />}
                 style={styles.lista}
             />
